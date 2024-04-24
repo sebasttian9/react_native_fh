@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Pressable, Platform } from 'react-native'
+import { PrimaryButton } from '../components';
+import { Button } from 'react-native-paper';
 
 export const CounterScreen = () => {
 
@@ -15,21 +17,21 @@ export const CounterScreen = () => {
     <View style={style.container}>
         <Text style={style.title}>{count} </Text>
 
+    {/* <PrimaryButton 
+                    label={'Sumar L'}
+                    onPress={()=>sumar()}
+                    onLongPress={()=>setCount(0)}
+    /> */}
 
-        <Pressable
-            style={({ pressed })=>[
-                style.button,
-                pressed && style.buttonPressed
-            ]}
-            onPress={()=>sumar()}
-            onLongPress={()=>setCount(0)}
-            >
-            <Text style={{color:'white'}}>Sumar 2</Text>
-        </Pressable>
+<Button 
+                    label={'Sumar L'}
+                    onPress={()=>sumar()}
+                    onLongPress={()=>setCount(0)}
+                    mode='contained'
+    >
+        Incrementar
+        </Button>
 
-
-        <Text>Luciana Lava los dientes</Text>
-        <Text>Antonia tu tambien</Text>
     </View>
   )
 }
@@ -45,14 +47,5 @@ const style = StyleSheet.create({
         fontSize: 80,
         color: 'black',
         fontWeight: '300'
-    },
-    button:{
-        backgroundColor: 'pink',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-         borderRadius: 10,
-    },
-    buttonPressed: {
-        backgroundColor:'red'
     }
 })
